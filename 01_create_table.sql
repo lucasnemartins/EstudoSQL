@@ -1,0 +1,57 @@
+-- =====================================================================
+-- Tabela: ORCAMENTO_DESPESA_2026
+-- Fonte : Portal da Transparência - Orçamento da Despesa 2026
+-- Autor : Estudo pessoal
+-- =====================================================================
+
+-- Se já existir, descomente a linha abaixo para recriar:
+-- DROP TABLE ORCAMENTO_DESPESA_2026 CASCADE CONSTRAINTS PURGE;
+
+CREATE TABLE ORCAMENTO_DESPESA_2026 (
+    EXERCICIO                   NUMBER(4)         NOT NULL,
+    COD_ORGAO_SUPERIOR          VARCHAR2(10 CHAR),
+    NOME_ORGAO_SUPERIOR         VARCHAR2(150 CHAR),
+    COD_ORGAO_SUBORDINADO       VARCHAR2(10 CHAR),
+    NOME_ORGAO_SUBORDINADO      VARCHAR2(200 CHAR),
+    COD_UNIDADE_ORCAMENTARIA    VARCHAR2(10 CHAR),
+    NOME_UNIDADE_ORCAMENTARIA   VARCHAR2(150 CHAR),
+    COD_FUNCAO                  VARCHAR2(5 CHAR),
+    NOME_FUNCAO                 VARCHAR2(60 CHAR),
+    COD_SUBFUNCAO               VARCHAR2(5 CHAR),
+    NOME_SUBFUNCAO              VARCHAR2(100 CHAR),
+    COD_PROGRAMA_ORCAMENTARIO   VARCHAR2(10 CHAR),
+    NOME_PROGRAMA_ORCAMENTARIO  VARCHAR2(150 CHAR),
+    COD_ACAO                    VARCHAR2(10 CHAR),
+    NOME_ACAO                   VARCHAR2(400 CHAR),
+    COD_CATEGORIA_ECONOMICA     VARCHAR2(2 CHAR),
+    NOME_CATEGORIA_ECONOMICA    VARCHAR2(60 CHAR),
+    COD_GRUPO_DESPESA           VARCHAR2(2 CHAR),
+    NOME_GRUPO_DESPESA          VARCHAR2(80 CHAR),
+    COD_ELEMENTO_DESPESA        VARCHAR2(5 CHAR),
+    NOME_ELEMENTO_DESPESA       VARCHAR2(200 CHAR),
+    ORCAMENTO_INICIAL           NUMBER(20,2),
+    ORCAMENTO_ATUALIZADO        NUMBER(20,2),
+    ORCAMENTO_EMPENHADO         NUMBER(20,2),
+    ORCAMENTO_REALIZADO         NUMBER(20,2),
+    PERC_REALIZADO              NUMBER(7,2)
+);
+
+-- Comentários nas colunas (boa prática para estudo/documentação)
+COMMENT ON TABLE  ORCAMENTO_DESPESA_2026                              IS 'Orçamento de despesas da União - exercício 2026';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.EXERCICIO                    IS 'Ano do exercício orçamentário';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.COD_ORGAO_SUPERIOR           IS 'Código do órgão superior';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.NOME_ORGAO_SUPERIOR          IS 'Nome do órgão superior';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.COD_ORGAO_SUBORDINADO        IS 'Código do órgão subordinado';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.NOME_ORGAO_SUBORDINADO       IS 'Nome do órgão subordinado';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.COD_UNIDADE_ORCAMENTARIA     IS 'Código da unidade orçamentária';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.NOME_UNIDADE_ORCAMENTARIA    IS 'Nome da unidade orçamentária';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.ORCAMENTO_INICIAL            IS 'Orçamento inicial em R$';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.ORCAMENTO_ATUALIZADO         IS 'Orçamento atualizado em R$';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.ORCAMENTO_EMPENHADO          IS 'Orçamento empenhado em R$';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.ORCAMENTO_REALIZADO          IS 'Orçamento realizado em R$';
+COMMENT ON COLUMN ORCAMENTO_DESPESA_2026.PERC_REALIZADO               IS '% realizado em relação ao orçamento atualizado';
+
+-- Índices úteis para consultas (opcional - descomente conforme o estudo)
+-- CREATE INDEX IDX_ORCDESP26_ORGAO_SUP    ON ORCAMENTO_DESPESA_2026 (COD_ORGAO_SUPERIOR);
+-- CREATE INDEX IDX_ORCDESP26_FUNCAO       ON ORCAMENTO_DESPESA_2026 (COD_FUNCAO);
+-- CREATE INDEX IDX_ORCDESP26_UO           ON ORCAMENTO_DESPESA_2026 (COD_UNIDADE_ORCAMENTARIA);
